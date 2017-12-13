@@ -41,6 +41,6 @@ A = np.loadtxt('ha30_dist.txt')
 G = nx.from_numpy_matrix(A)
 
 M = PrimMST(G, 0)
-nx.drawnetworkx(M)
+nx.draw_networkx(M)
 plt.savefig("teste.pdf")
 plt.show()
