@@ -25,10 +25,10 @@ def PrimMST(G, r):
 		u = ExtractMin(λ)
 		del λ[u]
 		S.append(u)
-		
+
 		for neighboor in G[u]:
 			if neighboor in λ:
 				if G[u][neighboor]['weight'] < λ[neighboor]:
 					π[neighboor] = u
 					λ[neighboor] = G[u][neighboor]['weight']
-
+					
