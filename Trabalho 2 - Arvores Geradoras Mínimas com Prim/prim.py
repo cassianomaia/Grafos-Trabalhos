@@ -17,10 +17,10 @@ def Prim(G, r):
 	while λ:
 		u = min(λ,key = λ.get)
 		del λ[u]
-		for neighboor in G[u]:
-			if neighboor in λ and G[u][neighboor]['weight'] < λ[neighboor]:
-				π[neighboor] = u
-				λ[neighboor] = G[u][neighboor]['weight']
+		for neighbor in G[u]:
+			if neighbor in λ and G[u][neighbor]['weight'] < λ[neighbor]:
+				π[neighbor] = u
+				λ[neighbor] = G[u][neighbor]['weight']
 		if π[u] is not 'null':
 			for v1,v2,data in G.edges(data=True):
 				if (v1 == π[u] and v2 == u):
