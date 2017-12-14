@@ -3,7 +3,7 @@ import numpy as np
 import networkx as nx
 from matplotlib import pyplot as plt
 
-def Prim(G, r):
+def Prim(G, s):
 	λ = {}
 	π = {}
     #Setando todos os nodes como infinito
@@ -11,7 +11,7 @@ def Prim(G, r):
 		λ[v] = np.inf
 		π[v] = 'null'
    #Setando o node inicial como zero
-	λ[r] = 0
+	λ[s] = 0
 	Mst = nx.create_empty_copy(G)
     
 	while λ:
