@@ -7,12 +7,10 @@ def BFS(G,s):
     color = {}
     λ = {} #vetor de distancia
     π = {} #vetor de predecessores
-    
     for v in G.nodes():
         color[v] = 'white'
         λ[v] = np.inf
         π[v] = 'null'
-    
     color[s] = 'gray'
     λ[s] = 0
     Queue = [s]
@@ -27,7 +25,7 @@ def BFS(G,s):
         color[u] = 'black'
     BFS_tree = nx.create_empty_copy(G)
     for v1,v2,data in G.edges(data=True):
-        if (π[v2] is v1) or (π[v1] is v2 and not nx.is_directed(BFS_tree)):
+        if (π[v1] is v2 and not nx.is_directed(BFS_tree)) or (π[v2] is v1):
             BFS_tree.add_edge(v1,v2)
             BFS_tree.node[v1]['depth'] = π[v1]
             BFS_tree.node[v2]['depth'] = π[v2]
@@ -37,7 +35,8 @@ def DFS(G, s):
     color = {}
     λ = {} #vetor de distancia
     π = {} #vetor de predecessores
-    
+    global time
+    time =0
     for v in G.nodes():
         color[v] = 'white'
         λ[v] = np.inf
@@ -69,6 +68,7 @@ def DFS(G, s):
 
     return DFS_tree
 
+def Visit(G, )
 #G_karate = nx.read_pajek('karate.paj')
 #G_dolphins = nx.read_pajek('dolphins.paj')
 
@@ -192,5 +192,5 @@ nx.draw_networkx(Karate_bfs)
 plt.savefig("teste_bfs.pdf")
 plt.show()
 nx.draw_networkx(Karate_dfs)
-plt.savefig("teste_bfs.pdf")
+plt.savefig("teste_dfs.pdf")
 plt.show()

@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-import networkx as nx
-from matplotlib import pyplot as plt
+
+def power_method(Matriz, qtd):
+    Vertices = Matriz.shape[0]
+    digrafo = {}
+    for i in range(Vertices):
+        digrafo[i] = 0
+    
