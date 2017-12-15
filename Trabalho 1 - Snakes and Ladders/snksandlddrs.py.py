@@ -70,7 +70,9 @@ for v in range(1,37):
         Matriz_Deltas[v-1][v-1] = 1/float(Digrafo.degree(v))
     
 Matriz_Probabilidades = np.dot(Matriz_Deltas, Matriz_Adjacência)
-
+np.savetxt('matriz_adjacencias.txt', Matriz_Adjacência, delimiter=',', fmt='%1.0e')
+np.savetxt('deltas.txt', Matriz_Deltas, delimiter=',', fmt='%1.0e')
 Results = power_method(Matriz_Probabilidades, 100)
 
-print (Results[1])
+for v in range(1,37):
+    print(Results[v])

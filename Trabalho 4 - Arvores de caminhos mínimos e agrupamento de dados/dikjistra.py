@@ -15,11 +15,9 @@ def Dijkstra(G,s,m,f):
     for v in G.nodes():
         λ[v] = np.inf
         π[v] = 'null'
-        
     for v,u in G.edges():
         if ('weight' not in G[u][v]):
             G[u][v]['weight'] = 1
-    
     λ[s] = 0
     π[s] = None
     #if para multisource até 3 no caso
@@ -29,18 +27,14 @@ def Dijkstra(G,s,m,f):
     if f != 0:
         λ[f] = 0
         π[f] = None
-        
     while λ:
         u = min(λ,key = λ.get)
-        
         for neighbor in G[u]:
         	if neighbor in λ:
         		if λ[neighbor] > λ[u] + G[u][neighbor]['weight']:
         			π[neighbor] = u
         			λ[neighbor] = λ[u] + G[u][neighbor]['weight'] 
-
         del λ[u]
-
         if π[u] is not 'null':
             for v1,v2,data in G.edges(data=True):
                 if (v1 == π[u] and v2 == u):
@@ -51,8 +45,6 @@ def Dijkstra(G,s,m,f):
 
 A = np.loadtxt('wg59_dist.txt')
 G = nx.from_numpy_matrix(A)
-
-
 M_1 = Dijkstra(G, 0, 0, 0)
 M_2 = Dijkstra(G, 0, 0, 58)
 M_3 = Dijkstra(G, 0, 29, 58)

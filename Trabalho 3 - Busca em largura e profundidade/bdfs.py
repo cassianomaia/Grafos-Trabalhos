@@ -68,7 +68,10 @@ def DFS(G, s):
 
     return DFS_tree
 
-def Visit(G, )
+def Visit(G, ):
+    
+    
+    
 #G_karate = nx.read_pajek('karate.paj')
 #G_dolphins = nx.read_pajek('dolphins.paj')
 
